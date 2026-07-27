@@ -1,0 +1,240 @@
+{% extends "base.html" %}
+
+{% block title %}
+Edit Expense | Expense Logger
+{% endblock %}
+
+{% block content %}
+
+<div class="form-page">
+
+    <!-- Page Header -->
+    <div class="form-page-header">
+
+        <div>
+            <p class="form-eyebrow">
+                <i class="bi bi-pencil-square"></i>
+                Update Transaction
+            </p>
+
+            <h1>
+                Edit Expense
+            </h1>
+
+            <p>
+                Update the details of your expense and keep your records accurate.
+            </p>
+        </div>
+
+        <a
+            href="{{ url_for('main.index') }}"
+            class="btn btn-back"
+        >
+            <i class="bi bi-arrow-left"></i>
+            Back to Expenses
+        </a>
+
+    </div>
+
+
+    <!-- Edit Form Card -->
+    <div class="expense-form-card">
+
+        <form
+            method="POST"
+            action="{{ url_for('main.edit_expense', id=expense.id) }}"
+        >
+
+            <div class="row g-4">
+
+                <!-- Expense Title -->
+                <div class="col-md-8">
+
+                    <label
+                        for="title"
+                        class="form-label-custom"
+                    >
+                        Expense Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="title"
+                        name="title"
+                        class="form-control form-control-custom"
+                        value="{{ expense.title }}"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Amount -->
+                <div class="col-md-4">
+
+                    <label
+                        for="amount"
+                        class="form-label-custom"
+                    >
+                        Amount
+                    </label>
+
+                    <div class="input-group-custom">
+
+                        <span class="currency-symbol">
+                            £
+                        </span>
+
+                        <input
+                            type="number"
+                            id="amount"
+                            name="amount"
+                            class="form-control form-control-custom"
+                            value="{{ expense.amount }}"
+                            step="0.01"
+                            min="0"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Category -->
+                <div class="col-md-6">
+
+                    <label
+                        for="category"
+                        class="form-label-custom"
+                    >
+                        Category
+                    </label>
+
+                    <select
+                        id="category"
+                        name="category"
+                        class="form-select form-control-custom"
+                        required
+                    >
+
+                        <option value="Food"
+                            {% if expense.category == "Food" %}selected{% endif %}>
+                            Food
+                        </option>
+
+                        <option value="Shopping"
+                            {% if expense.category == "Shopping" %}selected{% endif %}>
+                            Shopping
+                        </option>
+
+                        <option value="Transport"
+                            {% if expense.category == "Transport" %}selected{% endif %}>
+                            Transport
+                        </option>
+
+                        <option value="Bills"
+                            {% if expense.category == "Bills" %}selected{% endif %}>
+                            Bills & Utilities
+                        </option>
+
+                        <option value="Entertainment"
+                            {% if expense.category == "Entertainment" %}selected{% endif %}>
+                            Entertainment
+                        </option>
+
+                        <option value="Health"
+                            {% if expense.category == "Health" %}selected{% endif %}>
+                            Health
+                        </option>
+
+                        <option value="Education"
+                            {% if expense.category == "Education" %}selected{% endif %}>
+                            Education
+                        </option>
+
+                        <option value="Other"
+                            {% if expense.category == "Other" %}selected{% endif %}>
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Date -->
+                <div class="col-md-6">
+
+                    <label
+                        for="date"
+                        class="form-label-custom"
+                    >
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        name="date"
+                        class="form-control form-control-custom"
+                        value="{{ expense.date }}"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Note -->
+                <div class="col-12">
+
+                    <label
+                        for="note"
+                        class="form-label-custom"
+                    >
+                        Note
+                        <span class="optional-label">
+                            Optional
+                        </span>
+                    </label>
+
+                    <textarea
+                        id="note"
+                        name="note"
+                        class="form-control form-control-custom"
+                        rows="5"
+                        placeholder="Add any additional details about this expense..."
+                    >{{ expense.note or "" }}</textarea>
+
+                </div>
+
+            </div>
+
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+
+                <a
+                    href="{{ url_for('main.index') }}"
+                    class="btn btn-cancel"
+                >
+                    Cancel
+                </a>
+
+                <button
+                    type="submit"
+                    class="btn btn-save-expense"
+                >
+                    <i class="bi bi-check-lg"></i>
+                    Update Expense
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
