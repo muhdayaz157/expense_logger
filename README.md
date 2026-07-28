@@ -47,23 +47,23 @@ A modern and professional **Expense Tracking Web Application** built with Flask 
 
 ### Dashboard
 
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](Screenshots/Dashboard.png)
 
 ### Add Expense
 
-![Add Expense](screenshots/add-expense.png)
+![Add Expense](Screenshots/Add-expense.png)
 
 ### Search & Filter
 
-![Search and Filter](screenshots/filter.png)
+![Search and Filter](Screenshots/Filter.png)
 
 ### Edit Expense
 
-![Edit Expense](screenshots/edit-expense.png)
+![Edit Expense](Screenshots/Edit-expense.png)
 
 ### Empty State
 
-![Empty State](screenshots/empty-state.png)
+![Empty State](Screenshots/Empty-state.png)
 
 ---
 
