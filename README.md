@@ -47,7 +47,7 @@ A modern and professional **Expense Tracking Web Application** built with Flask 
 
 ### Dashboard
 
-![Dashboard](Screenshots/Dashboard.png)
+![Dashborad](Screenshots/Dashborad.png)
 
 ### Add Expense
 
